@@ -25,6 +25,13 @@ app.listen(PORT, () => {
   });
 });
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://stellar-shop-frontend.vercel.app");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 // Index route
 app.get("/", (req, res) => {
   res.send("Welcome to Stellar Shop");
